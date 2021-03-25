@@ -14,11 +14,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class NastySuprise implements ActionListener {
+	JButton button = new JButton();
+	JButton button2 = new JButton();
 	public NastySuprise() {
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
-		JButton button = new JButton();
-		JButton button2 = new JButton();
+		
 		JLabel trick = new JLabel();
 		JLabel Treat = new JLabel();
 		trick.setText("Trick");
@@ -56,9 +57,13 @@ private void showPictureFromTheInternet(String imageUrl) {
 }
 
 @Override
-public void actionPerformed(ActionEvent arg0) {
-showPictureFromTheInternet("dog.jpg");
-System.out.println("yes");
+public void actionPerformed(ActionEvent e) {
+	if (e.getSource() == button) {
+		showPictureFromTheInternet("https://www.rd.com/wp-content/uploads/2021/01/GettyImages-588935825.jpg");
+	}
+	else if (e.getSource() == button2) {
+		showPictureFromTheInternet("https://variety.com/wp-content/uploads/2019/08/garfield-e1565072358875.jpg");
+	}
 
 	
 	
