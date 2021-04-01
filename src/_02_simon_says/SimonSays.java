@@ -18,6 +18,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
+
+
 import java.io.IOException;
 
 public class SimonSays extends KeyAdapter {
@@ -39,7 +42,7 @@ int a = ran.nextInt(8);
 images.put(KeyEvent.VK_UP, "up.jpg");
 images.put(KeyEvent.VK_RIGHT, "right.jpg");
 images.put(KeyEvent.VK_LEFT, "left.jpg");
-images.put(KeyEvent.VK_DOWN, "DOWN.jpg");
+images.put(KeyEvent.VK_DOWN, "down.jpg");
 		// 3. Use a JOptionPane to tell the user the rules: "Press the matching
 		// key when
 		// 'Simon says' otherwise press a different key"
@@ -51,13 +54,28 @@ showImage();
 	public void keyPressed(KeyEvent e) {
 		// 15. Make a points variable to track the score.
 int points = 0;
+int tries = 0;
 		// 16. If the keyCode matches the imageIndex and "Simon says"
 if (e.getKeyCode() == imageIndex && simonSays == true) {
 	points++;
 	System.out.println("Correct!");
+	tries++;
+	showImage();
+	if (tries > 9) {
+		System.out.println("Your score was " + points);
+	}
 }
-else if (simonSays == false){
-points--;
+else if (e.getKeyCode() != imageIndex && simonSays == false){
+points++;
+tries++;
+
+showImage();
+if (tries > 9) {
+	System.out.println("Your score was " + points);
+	System.exit(0);
+
+}
+frame.dispose();
 	}
 		// 17. Increase the value of score
 
