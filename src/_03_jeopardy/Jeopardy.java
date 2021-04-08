@@ -55,14 +55,14 @@ frame.setVisible(true);
 		// 2. Give your frame a title
 frame.setName("frame");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-JPanel var = createHeader("Is Graffiti Art?");
+JPanel var = createHeader("Sports");
 
 		// 4. Add the header component to the quizPanel
 quizPanel.add(var);
 		// 5. Add the quizPanel to the frame
 frame.add(quizPanel);
 		// 6. Use the createButton method to set the value of firstButton
-firstButton = createButton("button1");
+firstButton = createButton("200$");
 		// 7. Add the firstButton to the quizPanel
 quizPanel.add(firstButton);
 		// 8. Write the code to complete the createButton() method below. Check that your
@@ -70,7 +70,7 @@ quizPanel.add(firstButton);
 
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-secondButton = createButton("button2");
+secondButton = createButton("500$");
 		// 10. Add the secondButton to the quizPanel
 quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
@@ -103,21 +103,21 @@ button.setText("dollarAmount");
 buttonCount++;
 		// Return your new button instead of the temporary button
 
-		return new JButton("button");
+		return new JButton(dollarAmount);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		
 		// Remove this temporary message after testing:
-		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) e.getSource()).getText() + " button");
+		
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
 if (buttonPressed == firstButton) {
-	askQuestion(null, null, buttonCount);
+	askQuestion("How old is Lebron James", "36", 200);
 }
 else if (buttonPressed == secondButton) {
-	
+	askQuestion("What year was Christiano Ronaldo born", "1985", 500);
 }
 			// Call the askQuestion() method
  
@@ -136,11 +136,33 @@ else if (buttonPressed == secondButton) {
 		// Use the playJeopardyTheme() method to play music while the use thinks of an answer
 		playJeopardyTheme();
 		// Remove this temporary message and replace it with a pop-up that asks the user the question
-		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
+		String answer = JOptionPane.showInputDialog(null, question);
 		
 		// Stop the theme music when they have entered their response. Hint: use the sound variable 
 		sound.stop();
 		// If the answer is correct
+if (answer.equals(correctAnswer)) {
+	score += prizeMoney;
+	JOptionPane.showMessageDialog(null, "Correct!");
+	updateScore();
+	if (prizeMoney == 200) {
+firstButton.setVisible(false);
+}
+	else {
+		secondButton.setVisible(false);
+	}
+}
+else {
+	score -= prizeMoney;
+	JOptionPane.showMessageDialog(null, "Incorrect! The correct answer is " + correctAnswer);
+	updateScore();
+	if (prizeMoney == 200) {
+		firstButton.setVisible(false);
+		}
+			else {
+				secondButton.setVisible(false);
+			}
+}
 
 			// Increase the score by the prizeMoney
 
