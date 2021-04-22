@@ -18,7 +18,7 @@ JButton button1 = new JButton();
 JButton button2 = new JButton();
 Random ran = new Random();
 public void makeButtons() {
-	JOptionPane.showMessageDialog(null, "Make button");
+	
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	
@@ -32,6 +32,7 @@ public void makeButtons() {
 	frame.setVisible(true);
 	frame.pack();
 	button1.addActionListener(this);
+	button2.addActionListener(this);
 }
 @Override
 public void actionPerformed(ActionEvent e) {
@@ -48,7 +49,7 @@ if (joke == 2) {
 	JOptionPane.showMessageDialog(null, "The bee is chasing you");
 }
 	}
-	else if (buttonpressed == button2) {
+	 if (buttonpressed == button2) {
 		int joke = ran.nextInt(3);
 		if (joke == 0) {
 			JOptionPane.showMessageDialog(null, "you better bee careful");
