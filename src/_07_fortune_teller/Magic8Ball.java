@@ -8,9 +8,27 @@ package _07_fortune_teller;
 import java.util.Random;
 
 public class Magic8Ball {
-
+	static Random ran = new Random();
+	
 	// 1. Make a main method that includes all the steps below….
-
+public static void main(String[] args) {
+	
+	ran.nextInt(4);
+	System.out.println(ran);
+	
+	if (ran.equals(0)) {
+		System.out.println("Yes");
+	}
+	if (ran.equals(1)) {
+		System.out.println("No");
+	}
+	if (ran.equals(2)) {
+		System.out.println("Maybe you should ask google");
+	}
+	if (ran.equals(3)) {
+		System.out.println("That should be obvious");
+	}
+}
 	// 2. Make a variable that will hold a random number and put a random number into this variable using "new Random().nextInt(4)"
 
 	// 3. Print out this variable
