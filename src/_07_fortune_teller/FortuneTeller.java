@@ -63,6 +63,7 @@ String ans = JOptionPane.showInputDialog("Ask me a question");
 
    		 // 12. Insert your completed Magic 8 ball code here
 Magic8Ball ball = new Magic8Ball();
+ball.main();
 
    	 }
 

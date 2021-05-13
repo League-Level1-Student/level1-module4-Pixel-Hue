@@ -11,21 +11,21 @@ public class Magic8Ball {
 	static Random ran = new Random();
 	
 	// 1. Make a main method that includes all the steps below….
-public static void main(String[] args) {
+public static void main() {
 	
-	ran.nextInt(4);
-	System.out.println(ran);
+	int x = ran.nextInt(4);
+	System.out.println(x);
 	
-	if (ran.equals(0)) {
+	if (x == 0) {
 		System.out.println("Yes");
 	}
-	if (ran.equals(1)) {
+	if (x == 1) {
 		System.out.println("No");
 	}
-	if (ran.equals(2)) {
+	if (x == 2) {
 		System.out.println("Maybe you should ask google");
 	}
-	if (ran.equals(3)) {
+	if (x == 3) {
 		System.out.println("That should be obvious");
 	}
 }
