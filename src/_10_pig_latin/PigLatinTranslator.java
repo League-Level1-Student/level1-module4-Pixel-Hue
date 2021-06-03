@@ -1,11 +1,14 @@
 package _10_pig_latin;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class PigLatinTranslator {
+public class PigLatinTranslator implements ActionListener {
 JFrame frame = new JFrame();
 JPanel panel = new JPanel();
 JTextField field = new JTextField(10);
@@ -19,6 +22,7 @@ public void setup () {
 	panel.add(field2);
 	frame.setVisible(true);
 	frame.pack();
+	button.addActionListener(this);
 }
 
 /**
@@ -80,5 +84,13 @@ word.charAt(i)=='i' || word.charAt(i)=='o' ||
 word.charAt(i)=='u')
 return i;
 return 0;
+}
+
+@Override
+public void actionPerformed(ActionEvent arg0) {
+	String nt = field.getText();
+	String t = translate(nt);
+	System.out.println(t);
+	field2.setText(t);
 }
 }
