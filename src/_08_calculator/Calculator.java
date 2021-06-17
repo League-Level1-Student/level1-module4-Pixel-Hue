@@ -84,6 +84,7 @@ public void setup() {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton buttonPressed = (JButton) e.getSource();
+		System.out.println(buttonPressed);
 		if (buttonPressed == button) {
 			add();
 		}
